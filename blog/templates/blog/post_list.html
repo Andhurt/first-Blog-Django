@@ -1,25 +1,13 @@
-<!DOCTYPE html>
-<html>
+{% extends 'blog/base.html' %}
 
-<head>
-    <title>Andres y Django</title>
-</head>
-
-<body>
-    <div>
-        <h1><a href="/">Andrès y Django</a></h1>
-    </div>
-
-    {% for post in posts %}
-    <div>
-        <h2><a href="">{{post.title}}</a></h2>
+{% block content %}
+{% for post in posts %}
+<div class="post">
+    <div class="date">
         <p>Publicado: {{post.published_date}}</p>
-        <p>{{post.text|linebreaksbr}}</p>
     </div>
-    {% endfor %}
-
-    <div>HOLA MUNDO</div>
-
-</body>
-
-</html>
+    <h2><a href="">{{post.title}}</a></h2>
+    <p>{{post.text|linebreaksbr}}</p>
+</div>
+{% endfor %}
+{% endblock %}
